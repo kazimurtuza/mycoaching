@@ -23,10 +23,10 @@
                     <h4 class="text-center font-weight-bold font-italic mt-3">User Registration Form go</h4>
                 </div>
             </div>
-            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="off" class="form-inline">
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="on" class="form-inline">
             @csrf
 
-                <!-- <div class="form-group col-12 mb-3">
+                <div class="form-group col-12 mb-3">
                     <label for="role" class="col-sm-3 col-form-label text-right">Role</label>
 
                     <select name="role" class="form-control col-sm-9" id="role">
@@ -34,7 +34,7 @@
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
                     </select>
-                </div> -->
+                </div>
 
                 <div class="form-group col-12 mb-3">
                     <label for="name" class="col-sm-3 col-form-label text-right">Name</label>
@@ -47,10 +47,16 @@
                                 @enderror
                 </div>
 
-                <!-- <div class="form-group col-12 mb-3">
+                <div class="form-group col-12 mb-3">
                     <label for="mobile" class="col-sm-3 col-form-label text-right">Mobile</label>
-                    <input id="mobile" type="text" class="col-sm-9 form-control" name="mobile" value="" placeholder="8801xxxxxxxxx" required>
-                </div> -->
+                    <input id="mobile" type="text" class="col-sm-9 form-control @error('mobile') is-invalid @enderror" name="mobile" value="" placeholder="8801xxxxxxxxx" required>
+
+                    @error('mobile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                </div>
 
                 <div class="form-group col-12 mb-3">
                     <label for="email" class="col-sm-3 col-form-label text-right">E-Mail Address</label>
