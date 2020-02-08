@@ -15,6 +15,11 @@ Route::get('/', function () {
    // return view('admin.home.home');
     return view('welcome');
 });
+Route::get('/user-registration', 'UserRegistrationController@showRegistrationForm')->name('user-registration')->middleware('auth');
+
+Route::post('/user-registration', 'UserRegistrationController@usersave')->name('user-save');
+
+Route::get('/user-list', 'UserRegistrationController@userlist')->name('user-list')->middleware('auth');
 
 Auth::routes();
 

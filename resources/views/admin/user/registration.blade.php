@@ -23,7 +23,7 @@
                     <h4 class="text-center font-weight-bold font-italic mt-3">User Registration Form go</h4>
                 </div>
             </div>
-            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="on" class="form-inline">
+            <form method="POST" action="{{ route('user-save') }}" enctype="multipart/form-data" autocomplete="on" class="form-inline">
             @csrf
 
                 <div class="form-group col-12 mb-3">
