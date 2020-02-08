@@ -25,15 +25,15 @@
                     <h4 class="text-center font-weight-bold font-italic mt-3">Admin Login Form</h4>
                 </div>
             </div>
-            <form action="{{ route('login')}}" method="post" enctype="multipart/form-data" autocomplete="email" class="form-inline">
+            <form action="{{ route('login')}}" method="post" enctype="multipart/form-data" autocomplete="mobile" class="form-inline">
             @csrf
 
                 <div class="form-group col-12 mb-3">
-                    <label for="email" class="col-sm-3 col-form-label text-right">Email.</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="email address" class="form-control col-sm-9 @error('email') is-invalid @enderror"  required>
+                    <label for="mobile" class="col-sm-3 col-form-label text-right">mobile.</label>
+                    <input id="mobile" type="mobile" name="mobile" value="{{ old('mobile') }}" placeholder="mobile address" class="form-control col-sm-9 @error('mobile') is-invalid @enderror"  required>
                   
 
-                    @error('email')
+                    @error('mobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
