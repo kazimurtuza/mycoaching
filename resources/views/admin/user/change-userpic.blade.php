@@ -20,35 +20,35 @@
   </button>
 </div>
 
-                   @endif                                   
-                    
-                      
-                        <tr> <td colspan="3" style="background:rgb(235,247,227)"><img src="{{asset('public')}}/assets/images/img-3.jpg" alt="not found img" style="width:150px;height:110px;margin-bottom:10px">
-                    </td>
-                </tr>
-                <tr>
-                       <td>
-                      
-                          <input type="file" name="pic">
-                           
-                        </td>
-                
-                        
-                </tr>
+                   @endif
+                   <tr> <td colspan="3" style="background:rgb(235,247,227)">
+                   <div id="preview">
+<h3>Image Preview</h3>
+<img style="width:150px;height:110px;margin-bottom:10px"src="{{asset('public')}}/assets/images/img-3.jpg" id="preview-image">
+</div>
+</td>
+</tr>
+                                   
                 <tr>
 
                     <td>
-                      <form action="{{route('change-userphoto')}}" method="post" enctype="multipart/form-data">
-                     @csrf
-                      <input type="hidden" name="id" value="{{$id}}">
-                      
-                      <input type="submit" class="btn btn-sm btn-block btn-info" value="change photo" >
-                 
-                      </form>
+                    <!-- Image Preview Before Upload using JavaScript -->
+<form method="post" action="">
+<label for="upload">Upload Image: </label>
+<input type="file" name="img"  onchange="previewImage(this);">
+<input type="submit" value="change pic" class="btn btn-block btn-info">
+</form>
                      
                   </td>
                 </tr> 
-                   
+                <div class="wrap">
+
+
+
+
+
+
+</div>
                    
         
                 </table>
@@ -57,6 +57,19 @@
     </div>
 </section>
 <!--Content End-->
+
+<script src="jquery-1.9.1.js"></script>
+<script>
+function previewImage(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#preview-image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
 @endsection
 
 
