@@ -103,6 +103,17 @@ class UserRegistrationController extends Controller
         return redirect("user-profiel/$request->id")->with('message',"update success");
        
     }
+
+    public function changeuserpic($id)
+    {
+        return view('admin/user/change-userpic',["id"=>$id]);
+      
+    }
+    public function changeUserPhoto(Request $request)
+    {
+       return "bangladesh";
+      
+    }
    
-   
+    
 }

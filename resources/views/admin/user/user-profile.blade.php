@@ -31,7 +31,7 @@
                         <tr style="width: 100px;"><th>Action</th>
                         <td>
                             <a href="{{route('change-user-info',['id'=>Auth::user()->id])}}" class="btn btn-sm btn-dark">change info</a>
-                            <a href="#" class="btn btn-sm btn-info">change photo</a>
+                            <a href="{{route('change-user-pic',['id'=>Auth::user()->id])}}" class="btn btn-sm btn-info">change photo</a>
                             <a href="#" class="btn btn-sm btn-danger">change password</a>
                         </td>
                         
