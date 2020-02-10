@@ -15,7 +15,7 @@
                     <tr>
                         <th>Sl.</th>
                         <th>Name</th>
-                        <th>school</th>
+                        <th>role</th>
                         <th>Mobile</th>
                         <th>email</th>
                         <th style="width: 100px;">Action</th>

@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class UserRegistrationController extends Controller
 {
     public function showRegistrationForm()
     {
+        if(Auth::user()->role=='Admin')
+        {
         return view('admin.user.registration');
+        }
+        else{
+            return redirect('\home');
+        }
     }
     public function usersave(Request $request)
     {
@@ -54,8 +61,48 @@ class UserRegistrationController extends Controller
     }
     public function userlist()
     {
-        $users=User::all();
-        return view('admin.user.user-list',['users'=>$users]);
+        if(Auth::user()->role=='Admin')
+        {
+            $users=User::all();
+            return view('admin.user.user-list',['users'=>$users]);
+        }
+        else{
+            return redirect('\home');
+        }
+
 
     }
+    public function userprofile($userid)
+    {
+        $user=User::find($userid);
+         return view('admin.user.user-profile',['user'=>$user]);
+       
+    }
+  
+ 
+    public function changeuserinfo($id)
+    {
+        $user=user::find($id);
+        return view('admin.user.change-user-info',['user'=>$user]);
+        
+       
+    }
+    public function  updateUserInfo(Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'string|max:255',
+            'mobile'=>'string|max:13|min:13',
+            'email'=>'string|email|max:255',
+        ]);
+        $user=user::find($request->id);
+        $user->name=$request->name;
+        $user->mobile=$request->mobile;
+        $user->email=$request->email;
+        $user->save();
+     
+        return redirect("user-profiel/$request->id")->with('message',"update success");
+       
+    }
+   
+   
 }

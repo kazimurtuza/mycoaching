@@ -52,7 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home') }}"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,6 +96,19 @@
                             <li><a href="#" class="dropdown-item">Add Batch</a></li>
                             <li><a href="#" class="dropdown-item">Batch List</a></li>
                         </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">user</a>
+                       
+                        
+                    <ul class="dropdown-menu">
+                     @if(Auth::user()->role=='Admin')
+                            <li><a href="{{route('user-registration')}}" class="dropdown-item">Add user</a></li>
+                            <li><a href="{{route('user-list')}}" class="dropdown-item">user List</a></li>
+                        @endif
+                            <li><a href="{{route('user-profile',['userid'=>Auth::user()->id])}}"  class="dropdown-item">user-profile</a></li>
+                        </ul>
+                      
                     </li>
 
                 </ul>

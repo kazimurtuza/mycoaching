@@ -24,3 +24,8 @@ Route::get('/user-list', 'UserRegistrationController@userlist')->name('user-list
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user-profiel/{userid}', 'UserRegistrationController@userprofile')->name('user-profile');
+
+Route::get('/change-user-info/{id}', 'UserRegistrationController@changeuserinfo')->name('change-user-info');
+Route::post('/update-user-info', 'UserRegistrationController@updateUserInfo')->name('update-user-info');
+
