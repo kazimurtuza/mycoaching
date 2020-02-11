@@ -24,7 +24,7 @@
                    <tr> <td colspan="3" style="background:rgb(235,247,227)">
                    <div id="preview">
 <h3>Image Preview</h3>
-<img style="width:150px;height:110px;margin-bottom:10px"src="{{asset('public')}}/assets/images/img-3.jpg" id="preview-image">
+<img style="width:150px;height:110px;margin-bottom:10px"src="{{asset(Auth::user()->pic)}}" id="preview-image">
 </div>
 </td>
 </tr>
@@ -33,15 +33,16 @@
 
                     <td>
                     <!-- Image Preview Before Upload using JavaScript -->
-<form method="post" action="">
+<form  action="{{ route('upload-userpic')}}" method="POST" enctype="multipart/form-data">
+@csrf
 <label for="upload">Upload Image: </label>
 <input type="file" name="img"  onchange="previewImage(this);">
-<input type="submit" value="change pic" class="btn btn-block btn-info">
+<input type="hidden" name="id" value="{{$id}}">
+<input type="submit" value="Upload" class="btn btn-block btn-info">
 </form>
-                     
                   </td>
                 </tr> 
-                <div class="wrap">
+               
 
 
 

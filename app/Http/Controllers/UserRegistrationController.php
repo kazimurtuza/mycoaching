@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Image;
 
 class UserRegistrationController extends Controller
 {
@@ -111,7 +112,34 @@ class UserRegistrationController extends Controller
     }
     public function changeUserPhoto(Request $request)
     {
-       return "bangladesh";
+      $user=User::find($request->id);
+       $file=$request->file('img');
+       $filename=$file->getClientOriginalName();
+       $directory="public/assets/user_images/";
+       $imageurl=$directory.$filename;
+
+          //////general way move file///
+
+    //    $file->move($directory,$imageurl);
+
+          //////general way move file end///
+
+
+
+
+    // useing inventory move file
+
+       Image::make($file)->resize(300,300)->save($imageurl);
+
+     // useing inventory move file end
+
+   
+   
+    //    save in database
+       $user->pic=$imageurl;
+       $user->save();
+     
+     return redirect("user-profiel/$request->id");
       
     }
    

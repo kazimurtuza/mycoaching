@@ -29,7 +29,8 @@ Route::get('/user-profiel/{userid}', 'UserRegistrationController@userprofile')->
 Route::get('/change-user-info/{id}', 'UserRegistrationController@changeuserinfo')->name('change-user-info');
 Route::post('/update-user-info', 'UserRegistrationController@updateUserInfo')->name('update-user-info');
 Route::get('/change-user-pic/{id}', 'UserRegistrationController@changeuserpic')->name('change-user-pic');
-Route::post('/change-userphoto', 'UserRegistrationController@changeUserPhoto')->name('change-userphoto');
+
+Route::post('/upload-userpic', 'UserRegistrationController@changeUserPhoto')->name('upload-userpic');
 
 
 
