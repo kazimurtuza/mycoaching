@@ -142,6 +142,33 @@ class UserRegistrationController extends Controller
      return redirect("user-profiel/$request->id");
       
     }
+
+    public function changeUserPassword($id)
+    {
+        return view('admin.user.change-user-password')->with('id',$id);
+    }
+
+    public function updateUserPassword(Request $request)
+    {
+        $this->validate($request,[
+            'newpassword' => 'required|string|min:8',
+            ]);
+
+         
+        
+      $newpass=$request->newpassword; //it's not a hash password
+      $oldpass=$request->oldpassword; //it's not a hash password
+     if(Hash::check($oldpass,Auth::user()->password))
+     {
+         $user=user::find($request->id);
+         $user->password=Hash::make($newpass);
+         $user->save();
+         return redirect("user-profiel/$request->id")->with('message','password change success ');
+     }
+     else{
+         return back()->with('error_message','password change file');
+     }
+    }
    
     
 }

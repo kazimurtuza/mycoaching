@@ -21,6 +21,16 @@
 </div>
 
                    @endif
+
+                   @if(Session::get('error_message'))
+                   <div class="alert alert-warning alert-dismissible fade show bg-danger text-center text-white" role="alert">
+  <strong>error_message:</strong> {{Session::get('error_message')}}.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+                   @endif
                     
                       
                         <tr> <td colspan="3" style="background:rgb(235,247,227)"><img src="@if(isset($user->pic)){{asset($user->pic)}} @else{{asset('public')}}/assets/images/avatar.png @endif" alt="not found img" style="width:150px;height:110px;margin-bottom:10px"></td></tr>
@@ -32,7 +42,7 @@
                         <td>
                             <a href="{{route('change-user-info',['id'=>Auth::user()->id])}}" class="btn btn-sm btn-dark">change info</a>
                             <a href="{{route('change-user-pic',['id'=>Auth::user()->id])}}" class="btn btn-sm btn-info">change photo</a>
-                            <a href="#" class="btn btn-sm btn-danger">change password</a>
+                            <a href="{{route('change-user-password',['id'=>Auth::user()->id])}}" class="btn btn-sm btn-danger">change password</a>
                         </td>
                         
                     </tr>

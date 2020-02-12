@@ -32,5 +32,9 @@ Route::get('/change-user-pic/{id}', 'UserRegistrationController@changeuserpic')-
 
 Route::post('/upload-userpic', 'UserRegistrationController@changeUserPhoto')->name('upload-userpic');
 
+Route::get('/change-user-password/{id}', 'UserRegistrationController@changeUserPassword')->name('change-user-password');
+
+Route::post('/update-user-passwor', 'UserRegistrationController@updateUserPassword')->name('update-user-password');
+
 
 
