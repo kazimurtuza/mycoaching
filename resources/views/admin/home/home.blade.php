@@ -18,4 +18,4 @@
     </div>
 </section>
 <!--Slider End-->
-@endsection;
+@endsection
