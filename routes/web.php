@@ -37,4 +37,4 @@ Route::get('/change-user-password/{id}', 'UserRegistrationController@changeUserP
 Route::post('/update-user-passwor', 'UserRegistrationController@updateUserPassword')->name('update-user-password');
 
 
-
+Auth::routes(['register' => false]);

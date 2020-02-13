@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use View;
-use Auth;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,9 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('admin/includs.header', function ($view){
-            $user=Auth::user();
+        view::composer('admin.includs.header', function ($view){
+            $user = Auth::user();
             $view->with('user',$user);
         });
+
+      
     }
 }
