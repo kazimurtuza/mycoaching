@@ -166,7 +166,7 @@ class UserRegistrationController extends Controller
          return redirect("user-profiel/$request->id")->with('message','password change success ');
      }
      else{
-         return back()->with('error_message','password change file');
+         return back()->with('error_message','old password does not match please try again...');
      }
     }
    
