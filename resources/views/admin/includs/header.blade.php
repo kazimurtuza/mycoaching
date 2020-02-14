@@ -113,10 +113,10 @@
                     </li>
 
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">Batch</a>
+                        <a class="dropdown-item dropdown-toggle" href="#">home setting</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Add Batch</a></li>
-                            <li><a href="#" class="dropdown-item">Batch List</a></li>
+                        <li><a href="{{route('add_slide')}}" class="dropdown-item">Add slide</a></li>
+                            <li><a href="#" class="dropdown-item">manage slide</a></li>
                         </ul>
                         <li class="dropdown-submenu">
                             <a class="dropdown-item dropdown-toggle" href="#">user</a>

@@ -37,4 +37,6 @@ Route::get('/add-header-footer', 'homepageController@addHeaderFooter')->name('ad
 Route::post('/save-Header-footer', 'homepageController@saveHeaderFooter')->name('save-Header-footer');
 Route::get('/change-headerFooter','homepageController@changeheaderFooter')->name('change-headerFooter');
 Route::post('/manage-headerFooter','homepageController@updateheaderFooter')->name('manage-headerFooter');
+Route::get('/add_slide','SliderController@addslide')->name('add_slide');
+Route::post('/save_slide','SliderController@saveslide')->name('save_slide');
 Auth::routes(['register' => false]);
