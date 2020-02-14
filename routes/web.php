@@ -21,8 +21,6 @@ Route::post('/user-registration', 'UserRegistrationController@usersave')->name('
 
 Route::get('/user-list', 'UserRegistrationController@userlist')->name('user-list')->middleware('auth');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user-profiel/{userid}', 'UserRegistrationController@userprofile')->name('user-profile');
 
@@ -35,6 +33,8 @@ Route::post('/upload-userpic', 'UserRegistrationController@changeUserPhoto')->na
 Route::get('/change-user-password/{id}', 'UserRegistrationController@changeUserPassword')->name('change-user-password');
 
 Route::post('/update-user-passwor', 'UserRegistrationController@updateUserPassword')->name('update-user-password');
-
-
+Route::get('/add-header-footer', 'homepageController@addHeaderFooter')->name('add-header-footer');
+Route::post('/save-Header-footer', 'homepageController@saveHeaderFooter')->name('save-Header-footer');
+Route::get('/change-headerFooter','homepageController@changeheaderFooter')->name('change-headerFooter');
+Route::post('/manage-headerFooter','homepageController@updateheaderFooter')->name('manage-headerFooter');
 Auth::routes(['register' => false]);
