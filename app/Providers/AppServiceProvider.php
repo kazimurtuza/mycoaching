@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
         });
         view::composer('admin.home.home', function ($view){
             //$slider=DB::table('sliders')->where('id',3);
-             $slider=slider::all();
+             $slider=slider::where('status', 1)->get();
             $view->with([
                 
                 'slider'=>$slider,

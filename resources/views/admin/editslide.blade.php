@@ -20,7 +20,7 @@
                    <tr> <td colspan="3" style="background:rgb(235,247,227)">
                    <div id="preview">
 <h3>Image Preview</h3>
-                   <img style="width:350px;height:310px;margin-bottom:10px"src="{{asset('public')}}/assets/images/dslr.png" id="preview-image">
+                   <img style="width:350px;height:310px;margin-bottom:10px"src="{{asset($id->img)}}" alt="not found image " id="preview-image">
 </div>
 </td>
 </tr>
@@ -41,12 +41,9 @@
                     <h4 class="text-center font-weight-bold font-italic mt-3">Add Home Page </h4>
                 </div>
             </div>
-            
-            <form method="POST" action="{{ route('save_slide') }}" enctype="multipart/form-data" autocomplete=" " class="form-inline">
+          
+        <form method="POST" action="{{route('update-slide')}}" enctype="multipart/form-data" autocomplete=" " class="form-inline">
             @csrf
-     
-
-      
                 <div class="form-group col-12 mb-3">
                     <label for="img" class="col-sm-3 col-form-label text-right">address</label>
                     <input type="file" name="img"  onchange="previewImage(this);">
@@ -56,7 +53,7 @@
                 <div class="form-group col-12 mb-3">
                     <label for="slideTitle" class="col-sm-3 col-form-label text-right">slide Title</label>
                     <input id="slideTitle" type="text" class="col-sm-9 form-control @error('slideTitle') is-invalid @enderror"
-                     name="slideTitle" value="{{ old('slideTitle') }}" placeholder="slideTitle" required>
+                     name="slideTitle" value="{{$id->slideTitle}}" placeholder="slideTitle" required>
 
                      @error('slideTitle')
                                     <span class="invalid-feedback" role="alert">
@@ -65,10 +62,12 @@
                                 @enderror
                 </div>
 
+                <input type="hidden" name="id" id="" value="{{$id->id}}">
+
                 <div class="form-group col-12 mb-3">
                     <label for="slideDescription" class="col-sm-3 col-form-label text-right">slideDescription</label>
                     <input id="slideDescription" type="text" class="col-sm-9 form-control @error('slideDescription') is-invalid @enderror"
-                     name="slideDescription" value="{{ old('slideDescription') }}" placeholder="slide Description" required>
+                     name="slideDescription" value="{{$id->slidedescription}}" placeholder="slide Description" required>
 
                      @error('slideDiscription')
                                     <span class="invalid-feedback" role="alert">
@@ -80,9 +79,9 @@
                 <div class="form-group col-12 mb-3">
                     <label for="status" class="col-sm-3 col-form-label text-right">status</label>
                     <label for="status" class="col-sm-3 col-form-label text-right">publish</label>
-                    <input type="radio" name="status" value="1" id="">
+                    <input type="radio" name="status" value="1" {{$id->status == 1 ? 'checked' : ' ' }} id="" >
                     <label for="status" class="col-sm-3 col-form-label text-right">hidden</label>
-                    <input type="radio" name="status" value="0" id="">
+                    <input type="radio" name="status" value="0"{{!$id->status== 1 ? 'checked' : ' '}} id="">
                      @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -113,3 +112,4 @@ function previewImage(input) {
 </script>
 
 @endsection
+name="id"

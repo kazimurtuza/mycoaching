@@ -39,4 +39,10 @@ Route::get('/change-headerFooter','homepageController@changeheaderFooter')->name
 Route::post('/manage-headerFooter','homepageController@updateheaderFooter')->name('manage-headerFooter');
 Route::get('/add_slide','SliderController@addslide')->name('add_slide');
 Route::post('/save_slide','SliderController@saveslide')->name('save_slide');
+Route::get('/manage-slider','SliderController@manageslider')->name('manage-slider');
+Route::get('/unpublish-list/{id}','SliderController@unpublishlist')->name('unpublish-list');
+Route::get('/publish-list/{id}','SliderController@publishlist')->name('publish-list');
+Route::get('/edit-slide/{id}','SliderController@editslide')->name('edit-slide');
+Route::post('/update-slide','SliderController@updateslide')->name('update-slide');
+Route::get('/delete-slide/{id}','SliderController@deleteslide')->name('delete-slide');
 Auth::routes(['register' => false]);

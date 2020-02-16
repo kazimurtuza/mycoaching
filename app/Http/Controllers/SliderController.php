@@ -45,9 +45,89 @@ class SliderController extends Controller
           
             'img'=>'required',
             'slideTitle'=>'required|string',
-            'slideTitle'=>'required|string',
+            'slideDescription'=>'required|string',
               'status'=>'required',
         ]);
     }
+
+    public function manageslider()
+    {
+        $slidelist=slider::all();
+        return view('admin.manage-slider',['slide'=>$slidelist]);
+    }
+    public function unpublishlist($id)
+    {
+        $data=slider::find($id);
+        $data->status=0;
+        $data->save();
+        return redirect('manage-slider');
+
+    }
+    public function publishlist($id)
+    {
+        $data=slider::find($id);
+        $data->status=1;
+        $data->save();
+        return redirect('manage-slider');
+
+    }
+    public function editslide($id)
+    {
+       $data=slider::find($id);
+        return view('admin.editslide',['id'=>$data]);
+
+    }
+    public function updateslide(Request $request)
+    {
+        $data=slider::find($request->id);
+        $data->slideTitle=$request->slideTitle;
+        $data->slidedescription=$request->slideDescription;
+        $data->status=$request->status;
+        $data->save();
+
+        if($request->file('img'))
+        {
+           $imgname=$this->imgsetup($request);
+           $data=slider::find($request->id);
+           $data->img=$imgname;
+           $data->save();
+           return redirect('manage-slider')->with('message',' slite edit is sucess');
+        }
+        else{
+            return redirect('manage-slider')->with('message',' slite edit is sucess');
+        }
+
+       
+         
+           
+        
+      
+       
+    }
+
+    public function deleteslide($id)
+    {
+        $data=slider::find($id);
+        unlink($data->img);
+        $data->delete();
+        return redirect('manage-slider')->with('message',' slite deleted');
+
+    }
+
+    public function imgsetup($request)
+    {   
+        $data=slider::find($request->id);
+     
+             unlink($data->img);
+            $file=$request->file('img');
+
+        $name=$file->getClientOriginalName();
+        $imgfilepath='public/assets/slideimages/';
+        $imgeurl= $imgfilepath.$name;
+        Image::make($file)->resize(1400,570)->save($imgeurl);
+        return $imgeurl;
+
+    }
+    
     
 }
