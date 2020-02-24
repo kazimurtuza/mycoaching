@@ -45,4 +45,14 @@ Route::get('/publish-list/{id}','SliderController@publishlist')->name('publish-l
 Route::get('/edit-slide/{id}','SliderController@editslide')->name('edit-slide');
 Route::post('/update-slide','SliderController@updateslide')->name('update-slide');
 Route::get('/delete-slide/{id}','SliderController@deleteslide')->name('delete-slide');
+
+
+// add school
+Route::get('/add-school','SchoolController@AddSchool')->name('add-school');
+Route::post('/post-add-school','SchoolController@PostAddSchool')->name('post-add-school');
+Route::get('/school-list','SchoolController@schoolList')->name('school-list');
+Route::get('/delete-school/{id}','SchoolController@deleteschool')->name('delete-school');
+
+// End add school
+
 Auth::routes(['register' => false]);

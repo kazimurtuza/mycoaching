@@ -19,7 +19,6 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
                    @endif
 
                    @if(Session::get('error_message'))
@@ -33,7 +32,7 @@
                    @endif
                     
                       
-                        <tr> <td colspan="3" style="background:rgb(235,247,227)"><img src="@if(isset($user->pic)){{asset($user->pic)}} @else{{asset('public')}}/assets/images/avatar.png @endif" alt="not found img" style="width:150px;height:110px;margin-bottom:10px"></td></tr>
+                        <tr> <td colspan="3" style="background:rgb(235,247,227)"><img src="@if(isset($user->pic)){{asset($user->pic)}} @else{{asset('public')}}/assets/images/avatar.png @endif" alt="not found img" style="width:170px;height:140px;margin-bottom:10px"></td></tr>
                         <tr><th>Name</th> <td>{{$user->name}}</td></tr>
                         <tr><th>Role</th><td>{{$user->role}}</td></tr>
                         <tr><th>Mobile</th><td>{{$user->mobile}}</td></tr>

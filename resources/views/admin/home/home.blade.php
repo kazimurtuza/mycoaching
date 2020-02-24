@@ -32,22 +32,12 @@
                             <h3> {{$slider->slidedescription}}</h3>
                             <p> {{$slider->slideTitle}}</p>
                           </div>
-
-                   
-                
                 </div>      
-              
-             
-                @endforeach  
-               
+                @endforeach   
         </div>
         </div>
     </div>
 </section>
 <!--Slider End-->
-
-
-
-
 
 @endsection
