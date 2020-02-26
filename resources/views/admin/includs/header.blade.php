@@ -91,6 +91,20 @@
                         <li><a href="{{route('school-list')}}" class="dropdown-item">School List</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Class</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('add-class')}}" class="dropdown-item">Add Class</a></li>
+                            <li><a href="{{route('class-list')}}" class="dropdown-item">Class List</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">batch</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('add-batch')}}" class="dropdown-item">Add batch</a></li>
+                            <li><a href="{{route('class-list')}}" class="dropdown-item">batch List</a></li>
+                        </ul>
+                    </li>
 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Genearal</a>
@@ -104,13 +118,7 @@
                         </ul>
                     </li>
 
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">Class</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Add Class</a></li>
-                            <li><a href="#" class="dropdown-item">Class List</a></li>
-                        </ul>
-                    </li>
+           
 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">home setting</a>

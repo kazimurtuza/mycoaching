@@ -55,4 +55,25 @@ Route::get('/delete-school/{id}','SchoolController@deleteschool')->name('delete-
 
 // End add school
 
+
+//   class
+
+Route::get('/add-class','SchoolController@Addclass')->name('add-class');
+Route::post('/post-add-class','SchoolController@PostAddclass')->name('post-add-class');
+Route::get('/class-list','SchoolController@classList')->name('class-list');
+Route::get('/delete-class/{id}','SchoolController@deleteclass')->name('delete-class');
+
+
+//  end class
+
+//   batch start
+
+Route::get('/add-batch','SchoolController@AddBatch')->name('add-batch');
+Route::post('/post-add-batch','SchoolController@PostAddBatch')->name('post-add-batch');
+// Route::get('/class-list','SchoolController@classList')->name('class-list');
+// Route::get('/delete-class/{id}','SchoolController@deleteclass')->name('delete-class');
+
+
+//  end  batch
+
 Auth::routes(['register' => false]);
