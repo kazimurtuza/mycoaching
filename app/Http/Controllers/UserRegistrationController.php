@@ -154,8 +154,6 @@ class UserRegistrationController extends Controller
             'newpassword' => 'required|string|min:8',
             ]);
 
-         
-        
       $newpass=$request->newpassword; //it's not a hash password
       $oldpass=$request->oldpassword; //it's not a hash password
      if(Hash::check($oldpass,Auth::user()->password))

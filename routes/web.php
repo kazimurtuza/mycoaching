@@ -70,7 +70,8 @@ Route::get('/delete-class/{id}','SchoolController@deleteclass')->name('delete-cl
 
 Route::get('/add-batch','SchoolController@AddBatch')->name('add-batch');
 Route::post('/post-add-batch','SchoolController@PostAddBatch')->name('post-add-batch');
-// Route::get('/class-list','SchoolController@classList')->name('class-list');
+Route::get('/batch-list','SchoolController@BatchList')->name('batch-list');
+Route::get('/batch-list-by-jquery','SchoolController@BatchListByjquery')->name('batch-list-by-jquery');
 // Route::get('/delete-class/{id}','SchoolController@deleteclass')->name('delete-class');
 
 

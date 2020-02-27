@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="{{asset('public/assets/css/style.css')}}">
     <!--    Favicon-->
     <link rel="shortcut icon" href="{{asset('public/assets/images/favicon.png')}}" type="image/x-icon">
+
+    <!--    jQuery-->
+    <script src="{{asset('public')}}/assets/js/jquery-3.4.1.js"></script>
 </head>
 <body>
 <!--Header Start-->
@@ -102,7 +105,7 @@
                         <a class="dropdown-item dropdown-toggle" href="#">batch</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('add-batch')}}" class="dropdown-item">Add batch</a></li>
-                            <li><a href="{{route('class-list')}}" class="dropdown-item">batch List</a></li>
+                            <li><a href="{{route('batch-list')}}" class="dropdown-item">batch List</a></li>
                         </ul>
                     </li>
 

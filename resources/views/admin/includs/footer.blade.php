@@ -20,8 +20,7 @@
 </footer>
 <!--Footer End-->
 
-    <!--    jQuery-->
-    <script src="{{asset('public')}}/assets/js/jquery-3.3.1.slim.min.js"></script>
+    
     <!--    magnific popup-->
     <script src="{{asset('public')}}/assets/plugins/magnific-popup/js/jquery.magnific-popup.min.js"></script>
     <!--    Carousel-->

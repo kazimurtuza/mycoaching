@@ -67,7 +67,7 @@ class SchoolController extends Controller
     //    class end////////////////////////////////////
 
 
-   //////////// add batch      /////////////
+   ////////////  batch      /////////////
 
     public function AddBatch() 
     { 
@@ -85,6 +85,20 @@ class SchoolController extends Controller
         return back()->with('message','successfully add batch');
 
     }
-   //////////// end add batch      /////////////
+
+
+    public function BatchList()
+    {
+        $classname=classname::all();
+        return view('admin.school.batchlist',['classname'=>$classname]);
+    }
+
+    public function BatchListByjquery(Request $request)
+    {
+        $batch=batch::where(['class_id'=> $request->id])->get();
+        return view('admin.school.batchlist-by-jquery',['batch'=>$batch]);
+      
+    }
+   //////////// end  batch      /////////////
 
 }
