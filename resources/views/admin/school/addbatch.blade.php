@@ -30,18 +30,29 @@
               @endforeach
 
             </select>
-            </div>                                     
-                <div class="form-group col-12 mb-3">
-                    <label for="class name" class="col-sm-3 col-form-label text-right">add batch</label>
-                    <input id="addbatch" type="text" class="col-sm-9 form-control @error('addbatch') is-invalid @enderror" name="batch_name" value="" placeholder="addbatch" required autofocus>
+            </div>        
+            <div class="form-group col-12 mb-3">
+                <label for="class name" class="col-sm-3 col-form-label text-right">add batch</label>
+                <input id="addbatch" type="text" class="col-sm-9 form-control @error('addbatch') is-invalid @enderror" name="batch_name" value="" placeholder="addbatch" required autofocus>
 
-                    @error('addbatch')
+                @error('addbatch')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+            </div>                             
+               
+                <div class="form-group col-12 mb-3">
+                    <label for="class name" class="col-sm-3 col-form-label text-right">batch capacity</label>
+                    <input id="capacity" type="text" class="col-sm-9 form-control @error('capacity') is-invalid @enderror" name="capacity" value="" placeholder="capacity" required autofocus>
+
+                    @error('capacity')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                 </div>
-            {{-- <input type="hidden" addbatch="id" value="{{$user->id}}"> --}}
+            {{-- <input type="hidden" capacity="id" value="{{$user->id}}"> --}}
 
                 <div class="form-group col-12 mb-3">
                     <label class="col-sm-3"></label>

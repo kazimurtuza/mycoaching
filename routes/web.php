@@ -72,7 +72,11 @@ Route::get('/add-batch','SchoolController@AddBatch')->name('add-batch');
 Route::post('/post-add-batch','SchoolController@PostAddBatch')->name('post-add-batch');
 Route::get('/batch-list','SchoolController@BatchList')->name('batch-list');
 Route::get('/batch-list-by-jquery','SchoolController@BatchListByjquery')->name('batch-list-by-jquery');
-// Route::get('/delete-class/{id}','SchoolController@deleteclass')->name('delete-class');
+Route::get('/batch-unpublish','SchoolController@BatchUnpublish')->name('batch-unpublish');
+Route::get('/batch-publish','SchoolController@BatchPublish')->name('batch-publish');
+Route::get('/batch-delete','SchoolController@BatchDelete')->name('batch-delete');
+Route::get('/batch-edit/{batch_id}','SchoolController@BatchEdit')->name('batch-edit');
+Route::post('/Postbatch-edit','SchoolController@PostBatchEdit')->name('Postbatch-edit');
 
 
 //  end  batch

@@ -80,6 +80,7 @@ class SchoolController extends Controller
         $input= new batch();
         $input->class_id=$request->class_id;
         $input->batch_name=$request->batch_name;
+        $input->capacity=$request->capacity;
         $input->status=1;
         $input->save();
         return back()->with('message','successfully add batch');
@@ -98,6 +99,53 @@ class SchoolController extends Controller
         $batch=batch::where(['class_id'=> $request->id])->get();
         return view('admin.school.batchlist-by-jquery',['batch'=>$batch]);
       
+    }
+
+    public function BatchUnpublish(Request $request)
+    {
+        $data=batch::find($request->batch_id);
+        $data->status=0;
+        $data->save();
+        $batch=batch::where(['class_id'=> $request->class_id])->get();
+        return view('admin.school.batchlist-by-jquery',['batch'=>$batch])->with('message','batch unpublish successful');
+
+    }
+    public function BatchPublish(Request $request)
+    {
+        $data=batch::find($request->batch_id);
+        $data->status=1;
+        $data->save();
+        $batch=batch::where(['class_id'=> $request->class_id])->get();
+        return view('admin.school.batchlist-by-jquery',['batch'=>$batch])->with('message','batch unpublish successful');
+
+    }
+    public function BatchDelete(Request $request)
+    {
+        $data=batch::find($request->batch_id);
+        $data->delete();
+        $batch=batch::where(['class_id'=> $request->class_id])->get();
+        return view('admin.school.batchlist-by-jquery',['batch'=>$batch])->with('message','batch delete successful');
+
+    }
+    public function BatchEdit($batch_id)
+    {
+        $data=batch::find($batch_id);
+        $classname=classname::all();
+        return view('admin.school.batch-edit',['batchdata'=>$data,'classname'=>$classname]);
+    }
+
+    public function PostBatchEdit(Request $request)
+    {
+        $update=batch::find($request->id);
+        $update->class_id=$request->classname;
+        $update->capacity=$request->capacity;
+        $update->batch_name=$request->batch_name;
+        $update->status=1;
+        $update->save();
+     
+        return redirect('batch-list')->with('message','batch update successful');
+      
+
     }
    //////////// end  batch      /////////////
 
