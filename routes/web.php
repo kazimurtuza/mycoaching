@@ -78,7 +78,13 @@ Route::get('/batch-delete','SchoolController@BatchDelete')->name('batch-delete')
 Route::get('/batch-edit/{batch_id}','SchoolController@BatchEdit')->name('batch-edit');
 Route::post('/Postbatch-edit','SchoolController@PostBatchEdit')->name('Postbatch-edit');
 
-
 //  end  batch
+
+// student sypts start
+Route::get('/studentTypelist','StudenttypeController@studentTypelist')->name('studentTypelist');
+Route::post('/student-type-add','StudenttypeController@StudentTypeAdd')->name('student-type-add');
+Route::get('/show-student-type-list','StudenttypeController@showstudenttypelist')->name('show-student-type-list');
+
+// student sypts end
 
 Auth::routes(['register' => false]);

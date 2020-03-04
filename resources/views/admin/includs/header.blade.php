@@ -107,7 +107,9 @@
                             <li><a href="{{route('add-batch')}}" class="dropdown-item">Add batch</a></li>
                             <li><a href="{{route('batch-list')}}" class="dropdown-item">batch List</a></li>
                         </ul>
-                    </li>
+          
+                        <li><a href="{{route('studentTypelist')}}" class="dropdown-item">student type</a></li>
+
 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Genearal</a>
